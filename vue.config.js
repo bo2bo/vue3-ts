@@ -3,6 +3,13 @@ module.exports = {
     outputDir: 'dist', // 打包的目录
     lintOnSave: true, // 在保存时校验格式
     productionSourceMap: false, // 生产环境是否生成 SourceMap
+    chainWebpack: config => {
+        config.plugin('html')
+            .tap(args => {
+                args[0].title = "后台管理系统";
+                return args;
+            })
+    },
     devServer: {
         open: true, // 启动服务后是否打开浏览器
         overlay: { // 错误信息展示到页面
