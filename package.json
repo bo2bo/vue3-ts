@@ -10,8 +10,10 @@
         "lint": "vue-cli-service lint"
     },
     "dependencies": {
+        "@types/echarts": "^4.9.10",
         "axios": "0.21.0",
         "core-js": "^3.6.5",
+        "echarts": "^5.1.2",
         "element-plus": "^1.0.2-beta.52",
         "js-cookie": "^3.0.0",
         "vue": "^3.0.0",
