@@ -36,8 +36,9 @@ export default defineComponent({
     flex: 1;
     display: flex;
     flex-direction: row;
-    .content{
-        flex: 1;
+    .content {
+      flex: 1;
+      padding: 20px;
     }
   }
 }

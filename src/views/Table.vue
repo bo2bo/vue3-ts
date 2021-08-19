@@ -85,7 +85,6 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 .myTable {
-  padding: 16px;
   .el-pagination {
     text-align: right;
     margin-top: 14px;
