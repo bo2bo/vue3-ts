@@ -1,6 +1,6 @@
 <template>
   <div class="navBar">
-    <el-menu :uniqueOpened="uniqueOpened" :default-active="defaultActive" class="el-menu-vertical-demo" background-color="#304156" text-color="#fff" active-text-color="#ffd04b" :router="true">
+    <el-menu :uniqueOpened="uniqueOpened" :default-active="defaultActive" class="el-menu-vertical-demo" background-color="#304156" text-color="#fff" active-text-color="#ffd04b" :router="true" @select="handleSelect">
       <template v-for="item in menuList" :key="item.id">
         <el-submenu v-if="item.children.length!==0" :index="item.path">
           <template #title>
@@ -23,10 +23,12 @@
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from "vue";
+import { useRouter } from "vue-router";
 export default defineComponent({
   setup() {
+    let router = useRouter();
     let data = reactive({
-      defaultActive: "/table",
+      defaultActive: router.currentRoute.value.fullPath || "/",
       uniqueOpened: true,
     });
     const menuList: {
@@ -88,9 +90,13 @@ export default defineComponent({
         children: [],
       },
     ]);
+    const handleSelect = (key: string, keyPath: string) => {
+      data.defaultActive = key;
+    };
     return {
       ...toRefs(data),
       menuList,
+      handleSelect,
     };
   },
 });
