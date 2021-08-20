@@ -2,15 +2,15 @@
   <div class="myChart" ref="myChart"></div>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, onMounted } from "vue";
 import * as echarts from "echarts";
 export default defineComponent({
   setup() {
-    const myChart = ref<HTMLElement>(); //也可以用const myChart = ref<any>();
+    const myChart = ref<any>();
     const myCharts = ref<any>();
-    setTimeout(() => {
+    onMounted(() => {
       // 绘制图表
-      myCharts.value = echarts.init(myChart.value!);
+      myCharts.value = echarts.init(myChart.value);
       myCharts.value.setOption({
         color: ["#80FFA5", "#00DDFF", "#37A2FF", "#FF0087", "#FFBF00"],
         title: {
@@ -193,7 +193,7 @@ export default defineComponent({
           },
         ],
       });
-    }, 10);
+    });
     return {
       myChart,
     };
@@ -202,7 +202,7 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 .myChart {
-  width: 1200px;
-  height: 600px;
+  width: 100%;
+  height: 100%;
 }
 </style>
