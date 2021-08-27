@@ -1,12 +1,10 @@
 <template>
   <el-tabs type="border-card">
     <el-tab-pane label="色温图">
-        色温图
-      <!-- <div class="colorMap" ref="colorMap"></div> -->
+      <div class="colorMap" ref="colorMap"></div>
     </el-tab-pane>
     <el-tab-pane label="标记地图">
-        标记地图
-      <!-- <div class="pointMap" ref="pointMap"></div> -->
+      <div class="pointMap" ref="pointMap"></div>
     </el-tab-pane>
   </el-tabs>
 </template>
@@ -35,7 +33,8 @@ export default defineComponent({
 <style lang="scss" scoped>
 .colorMap,
 .pointMap {
-  width: 800px;
-  height: 400px;
+  width: 1260px;
+  height: 630px;
+  background-color: antiquewhite;
 }
 </style>

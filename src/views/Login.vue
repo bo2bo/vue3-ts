@@ -8,13 +8,13 @@
         <el-form-item label="密码" prop="passWord">
           <el-input type="password" v-model="loginForm.passWord" autocomplete="off"></el-input>
         </el-form-item>
-        <el-form-item label="验证码" prop="code">
+        <!-- <el-form-item label="验证码" prop="code">
           <div class="login-code">
             <el-input v-model="loginForm.code" auto-complete="off" style="width: 63%" @keyup.enter="submitForm('loginForm')">
             </el-input>
             <img :src="codeUrl" @click="getCode" class="login-code-img" />
           </div>
-        </el-form-item>
+        </el-form-item> -->
         <el-form-item style="text-align: center;">
           <el-button type="primary" @click="submitForm('loginForm')">登陆</el-button>
           <el-button @click="resetForm('loginForm')">重置</el-button>
@@ -33,8 +33,8 @@ export default defineComponent({
     return {
       codeUrl: "",
       loginForm: {
-        useName: "",
-        passWord: "",
+        useName: "admin",
+        passWord: "123456",
         code: "",
         uuid: "",
       },
@@ -89,6 +89,7 @@ export default defineComponent({
           //       this.$router.push({ path: this.redirect || "/" }).catch(() => {});
           //     }
           //   });
+          setToken('admin123456');
           this.$router.push({ path: this.redirect || "/" }).catch(() => {});
         }
       });
