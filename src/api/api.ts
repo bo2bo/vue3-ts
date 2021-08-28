@@ -21,3 +21,21 @@ export function updateTableList(params: any): Promise<any> {
         data: params
     })
 }
+export function getColorMap(): Promise<any> {
+    return request({
+        url: '/map/getColorMap',
+        method: 'get'
+    })
+}
+export function getSpotMap(): Promise<any> {
+    return request({
+        url: '/map/getSpotMap',
+        method: 'get'
+    })
+}
+export function getMap(): Promise<any> {
+    return request({
+        url: '/map/getMap',
+        method: 'get'
+    })
+}
